@@ -1,7 +1,6 @@
 services:
   pgdatabase:
     image: postgres:13
-    hostname: pg-database
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
@@ -14,7 +13,6 @@ services:
       - pg-network
   pgadmin:
     image: dpage/pgadmin4
-    hostname: pg-database
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
