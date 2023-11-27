@@ -6,22 +6,22 @@
 docker-compose up -d
 ```
 
-## Build the image
-```bash
-docker build -t taxi_ingest:v001 .
-```
-
 ## Run the script with Docker
 
 The csv files are available at: https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/yellow
 
+- Run through Docker
 ```bash
+# Build image through Dockerfile
+docker build -t taxi_ingest:v001 .
+
+# Run
 docker run -it \
   --network=pg-network \
   taxi_ingest:v001 \
     --user=root \
     --password=root \
-    --host=pg-database \
+    --host=pgdatabase \
     --port=5432 \
     --db=ny_taxi \
     --table_name=yellow_taxi_trips \
